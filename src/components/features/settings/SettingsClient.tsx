@@ -39,19 +39,19 @@ export default function SettingsClient() {
   const [tab, setTab] = useState<TabId>('profile')
 
   return (
-    <div style={{ padding: '60px 48px 100px' }}>
+    <div className="site-shell" style={{ padding: '60px 48px 100px' }}>
       <div style={{ marginBottom: 40 }}>
         <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 16 }}>
           ESPACE MEMBRE
         </div>
-        <h1 style={{ fontFamily: theme.serif, fontSize: 64, fontWeight: 400, margin: 0, lineHeight: 1 }}>
+        <h1 className="page-title" style={{ fontFamily: theme.serif, fontSize: 64, fontWeight: 400, margin: 0, lineHeight: 1 }}>
           Mon <span style={{ fontStyle: 'italic' }}>compte</span>
         </h1>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: 32 }}>
+      <div className="settings-layout" style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: 32 }}>
         {/* Sidebar */}
-        <div>
+        <div className="settings-sidebar">
           <div style={{ background: theme.cream2, padding: 24, marginBottom: 16, border: `1px solid ${theme.line}` }}>
             <div style={{
               width: 64, height: 64, borderRadius: 999, background: theme.accent, color: '#fff',
@@ -63,7 +63,7 @@ export default function SettingsClient() {
               MEMBRE DEPUIS 2025
             </div>
           </div>
-          <nav style={{ display: 'grid', gap: 2 }}>
+          <nav className="settings-tabs" style={{ display: 'grid', gap: 2 }}>
             {TABS.map(t => (
               <button key={t.id} onClick={() => setTab(t.id)} style={{
                 background: tab === t.id ? theme.ink : 'transparent',
@@ -79,11 +79,11 @@ export default function SettingsClient() {
         </div>
 
         {/* Panel */}
-        <div style={{ background: theme.cream2, padding: 36, border: `1px solid ${theme.line}` }}>
+        <div className="settings-panel" style={{ background: theme.cream2, padding: 36, border: `1px solid ${theme.line}` }}>
           {tab === 'profile' && (
             <div>
-              <h2 style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Informations personnelles</h2>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+              <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Informations personnelles</h2>
+              <div className="settings-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                 <Field label="Prénom" placeholder="Jeanne" />
                 <Field label="Nom" placeholder="Dupont" />
                 <Field label="Email" icon="mail" placeholder="jeanne@email.com" />
@@ -97,9 +97,9 @@ export default function SettingsClient() {
 
           {tab === 'orders' && (
             <div>
-              <h2 style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Historique des commandes</h2>
+              <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Historique des commandes</h2>
               {ORDERS.map(o => (
-                <div key={o.id} style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto', gap: 24, padding: '20px 0', borderBottom: `1px solid ${theme.line}`, alignItems: 'center' }}>
+                <div key={o.id} className="orders-row" style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto', gap: 24, padding: '20px 0', borderBottom: `1px solid ${theme.line}`, alignItems: 'center' }}>
                   <div>
                     <div style={{ fontFamily: theme.mono, fontSize: 13 }}>{o.id}</div>
                     <div style={{ fontSize: 12, color: theme.muted }}>{o.date}</div>
@@ -118,9 +118,9 @@ export default function SettingsClient() {
 
           {tab === 'address' && (
             <div>
-              <h2 style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Mes adresses</h2>
+              <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Mes adresses</h2>
               {ADDRESSES.map(a => (
-                <div key={a.label} style={{ background: theme.cream, padding: 20, marginBottom: 12, border: `1px solid ${theme.line}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div key={a.label} className="address-row" style={{ background: theme.cream, padding: 20, marginBottom: 12, border: `1px solid ${theme.line}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
                     <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                       <div style={{ fontFamily: theme.serif, fontSize: 18, fontWeight: 500 }}>{a.label}</div>
@@ -139,7 +139,7 @@ export default function SettingsClient() {
 
           {tab === 'payment' && (
             <div>
-              <h2 style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Moyens de paiement</h2>
+              <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Moyens de paiement</h2>
               <div style={{ background: `linear-gradient(135deg, ${theme.ink}, ${theme.ink2})`, color: theme.cream, padding: 28, marginBottom: 16, maxWidth: 400, aspectRatio: '1.6' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div style={{ fontFamily: theme.serif, fontStyle: 'italic', fontSize: 22 }}>L&apos;Atelier Mobile</div>
@@ -158,9 +158,9 @@ export default function SettingsClient() {
 
           {tab === 'notif' && (
             <div>
-              <h2 style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Notifications</h2>
+              <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Notifications</h2>
               {NOTIFS.map(n => (
-                <div key={n.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 0', borderBottom: `1px solid ${theme.line}` }}>
+                <div key={n.label} className="notif-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 0', borderBottom: `1px solid ${theme.line}` }}>
                   <div>
                     <div style={{ fontWeight: 500 }}>{n.label}</div>
                     <div style={{ fontSize: 12, color: theme.muted }}>{n.desc}</div>
@@ -173,7 +173,7 @@ export default function SettingsClient() {
 
           {tab === 'pref' && (
             <div>
-              <h2 style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Préférences</h2>
+              <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 32, fontWeight: 400, margin: '0 0 24px' }}>Préférences</h2>
               <div style={{ display: 'grid', gap: 20 }}>
                 {[{ label: 'LANGUE', options: ['Français', 'English'] }, { label: 'DEVISE', options: ['Euro (€)'] }].map(s => (
                   <div key={s.label}>
@@ -184,7 +184,7 @@ export default function SettingsClient() {
                   </div>
                 ))}
                 <div style={{ marginTop: 16, padding: 20, background: theme.cream, border: `1px solid ${theme.line}` }}>
-                  <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                  <div className="eco-pref-row" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                     <Icon name="leaf" size={20} stroke={theme.accent2} />
                     <div style={{ flex: 1 }}>
                       <div style={{ fontWeight: 500, marginBottom: 4 }}>Mode éco-responsable</div>

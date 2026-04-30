@@ -16,9 +16,9 @@ export default function AuthClient() {
   const handleSubmit = () => router.push('/')
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', minHeight: 'calc(100vh - 80px)' }}>
+    <div className="auth-shell" style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', minHeight: 'calc(100vh - 80px)' }}>
       {/* Left visual */}
-      <div style={{
+      <div className="auth-visual" style={{
         background: theme.ink, color: theme.cream, padding: '60px 56px',
         position: 'relative', overflow: 'hidden',
         display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
@@ -45,8 +45,8 @@ export default function AuthClient() {
       </div>
 
       {/* Right form */}
-      <div style={{ padding: '60px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: 540, width: '100%' }}>
-        <div style={{ display: 'flex', gap: 0, marginBottom: 40, borderBottom: `1px solid ${theme.line}` }}>
+      <div className="auth-form" style={{ padding: '60px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: 540, width: '100%' }}>
+        <div className="auth-tabs" style={{ display: 'flex', gap: 0, marginBottom: 40, borderBottom: `1px solid ${theme.line}` }}>
           {([['login', 'Se connecter'], ['signup', 'Créer un compte']] as [Mode, string][]).map(([k, l]) => (
             <button key={k} onClick={() => setMode(k)} style={{
               background: 'transparent', border: 'none', padding: '16px 0', marginRight: 32,
@@ -60,7 +60,7 @@ export default function AuthClient() {
           ))}
         </div>
 
-        <h2 style={{ fontFamily: theme.serif, fontSize: 40, fontWeight: 400, margin: '0 0 8px' }}>
+        <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 40, fontWeight: 400, margin: '0 0 8px' }}>
           {mode === 'login' ? 'Bon retour parmi nous' : "Bienvenue à l'atelier"}
         </h2>
         <p style={{ fontSize: 14, color: theme.muted, margin: '0 0 32px' }}>
@@ -98,7 +98,7 @@ export default function AuthClient() {
           <div style={{ flex: 1, height: 1, background: theme.line }} />
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        <div className="social-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {['Google', 'Apple'].map(p => (
             <button key={p} style={{
               background: theme.cream, border: `1px solid ${theme.line}`,

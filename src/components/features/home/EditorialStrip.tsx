@@ -4,13 +4,13 @@ import LifestyleImage from '@/components/imagery/LifestyleImage'
 
 export default function EditorialStrip() {
   return (
-    <section style={{ padding: '0 48px 100px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: theme.cream2 }}>
-        <div style={{ padding: 60, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <section className="site-shell" style={{ padding: '0 48px 100px' }}>
+      <div className="feature-split" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: theme.cream2 }}>
+        <div className="feature-card-body" style={{ padding: 60, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 16 }}>
             NOTRE HISTOIRE
           </div>
-          <h2 style={{ fontFamily: theme.serif, fontSize: 44, lineHeight: 1.1, fontWeight: 400, margin: 0, fontStyle: 'italic' }}>
+          <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 44, lineHeight: 1.1, fontWeight: 400, margin: 0, fontStyle: 'italic' }}>
             Une logistique pensée pour la beauté de l&apos;objet.
           </h2>
           <p style={{ fontSize: 15, color: theme.ink2, lineHeight: 1.7, marginTop: 24, maxWidth: 460 }}>
@@ -25,7 +25,7 @@ export default function EditorialStrip() {
             Lire l&apos;histoire <Icon name="arrow" size={14} stroke={theme.accent} />
           </button>
         </div>
-        <div style={{ minHeight: 480 }}>
+        <div className="feature-image" style={{ minHeight: 480 }}>
           <LifestyleImage palette="earth" label="ATELIER · LILLE" />
         </div>
       </div>

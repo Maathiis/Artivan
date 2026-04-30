@@ -25,7 +25,7 @@ export default async function ShopDetailPage({ params }: { params: Promise<{ id:
 
   return (
     <div>
-      <Link href="/shops" style={{
+      <Link href="/shops" className="shop-detail-back" style={{
         background: 'transparent', border: 'none', padding: '20px 48px',
         cursor: 'pointer', color: theme.muted, fontSize: 13,
         display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none',
@@ -33,7 +33,7 @@ export default async function ShopDetailPage({ params }: { params: Promise<{ id:
         <Icon name="arrowLeft" size={14} stroke={theme.muted} /> Retour aux boutiques
       </Link>
 
-      <section style={{ padding: '20px 48px 60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+      <section className="shop-detail-hero site-shell" style={{ padding: '20px 48px 60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
         <div style={{ aspectRatio: '4/5' }}>
           <ShopImage shop={shop} />
         </div>
@@ -41,11 +41,11 @@ export default async function ShopDetailPage({ params }: { params: Promise<{ id:
           <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 16 }}>
             {shop.tag.toUpperCase()} · {shop.city.toUpperCase()}
           </div>
-          <h1 style={{ fontFamily: theme.serif, fontSize: 80, lineHeight: 0.95, fontWeight: 400, margin: 0, letterSpacing: '-0.02em' }}>
+          <h1 className="page-title" style={{ fontFamily: theme.serif, fontSize: 80, lineHeight: 0.95, fontWeight: 400, margin: 0, letterSpacing: '-0.02em' }}>
             {shop.name}
           </h1>
           <p style={{ fontSize: 17, color: theme.ink2, lineHeight: 1.7, marginTop: 28 }}>{shop.longDesc}</p>
-          <div style={{
+          <div className="shop-stats" style={{
             display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24,
             marginTop: 40, paddingTop: 28, borderTop: `1px solid ${theme.line}`,
           }}>
@@ -63,11 +63,11 @@ export default async function ShopDetailPage({ params }: { params: Promise<{ id:
         </div>
       </section>
 
-      <section style={{ padding: '0 48px 100px' }}>
-        <h2 style={{ fontFamily: theme.serif, fontSize: 36, fontWeight: 400, margin: '0 0 24px' }}>
+      <section className="site-shell" style={{ padding: '0 48px 100px' }}>
+        <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 36, fontWeight: 400, margin: '0 0 24px' }}>
           Pièces de l&apos;atelier
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+        <div className="shop-products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
           {shopProducts.map(p => (
             <Link key={p.id} href="/catalog" style={{ background: theme.cream2, cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
               <div style={{ aspectRatio: '1' }}><ProductImage product={p} palette="warm" /></div>

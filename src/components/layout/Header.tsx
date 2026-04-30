@@ -17,14 +17,14 @@ export default function Header() {
   const { cartCount } = useCart()
 
   return (
-    <header style={{
+    <header className="app-header" style={{
       position: 'sticky', top: 0, zIndex: 50,
       background: `${theme.cream}f0`, backdropFilter: 'blur(12px)',
       borderBottom: `1px solid ${theme.line}`,
       padding: '18px 48px',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     }}>
-      <Link href="/" style={{
+      <Link href="/" className="app-brand" style={{
         background: 'transparent', border: 'none', cursor: 'pointer',
         display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', color: 'inherit',
       }}>
@@ -39,13 +39,13 @@ export default function Header() {
           <div style={{ fontFamily: theme.serif, fontSize: 18, fontWeight: 500, lineHeight: 1 }}>
             L&apos;Atelier Mobile
           </div>
-          <div style={{ fontSize: 9, letterSpacing: '0.2em', color: theme.muted, fontFamily: theme.mono, marginTop: 2 }}>
+          <div className="app-brand-subtitle" style={{ fontSize: 9, letterSpacing: '0.2em', color: theme.muted, fontFamily: theme.mono, marginTop: 2 }}>
             EST. 2024 · LIVRAISON ÉCO
           </div>
         </div>
       </Link>
 
-      <nav style={{ display: 'flex', gap: 32 }}>
+      <nav className="app-nav" style={{ display: 'flex', gap: 32 }}>
         {NAV_LINKS.map(({ href, label }) => (
           <Link key={href} href={href} style={{
             background: 'transparent', border: 'none', cursor: 'pointer',
@@ -59,7 +59,7 @@ export default function Header() {
         ))}
       </nav>
 
-      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+      <div className="app-header-actions" style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
         <Link href="/cart" style={{
           background: 'transparent', border: `1px solid ${theme.line}`,
           width: 40, height: 40, cursor: 'pointer', position: 'relative',

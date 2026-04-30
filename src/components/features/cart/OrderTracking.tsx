@@ -11,8 +11,8 @@ const STEPS = [
 
 export default function OrderTracking() {
   return (
-    <div style={{ background: theme.cream2, padding: 28, marginBottom: 28, border: `1px solid ${theme.line}` }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+    <div className="order-tracking-card" style={{ background: theme.cream2, padding: 28, marginBottom: 28, border: `1px solid ${theme.line}` }}>
+      <div className="tracking-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <div>
           <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.2em', color: theme.muted }}>
             COMMANDE #LAM-2614
@@ -30,12 +30,12 @@ export default function OrderTracking() {
         </button>
       </div>
 
-      <div style={{ position: 'relative', marginBottom: 20 }}>
-        <div style={{ position: 'absolute', top: 14, left: 14, right: 14, height: 2, background: theme.line }} />
-        <div style={{ position: 'absolute', top: 14, left: 14, height: 2, background: theme.accent2, width: '50%' }} />
+      <div className="tracking-steps" style={{ position: 'relative', marginBottom: 20 }}>
+        <div className="tracking-line" style={{ position: 'absolute', top: 14, left: 14, right: 14, height: 2, background: theme.line }} />
+        <div className="tracking-progress" style={{ position: 'absolute', top: 14, left: 14, height: 2, background: theme.accent2, width: '50%' }} />
         <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
           {STEPS.map((s, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
+            <div key={i} className="tracking-step" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
               <div style={{
                 width: 30, height: 30, borderRadius: 999,
                 background: s.done ? theme.accent2 : theme.cream,
@@ -59,7 +59,7 @@ export default function OrderTracking() {
         </div>
       </div>
 
-      <div style={{
+      <div className="tracking-footer" style={{
         paddingTop: 16, borderTop: `1px solid ${theme.line}`,
         display: 'flex', justifyContent: 'space-between', fontSize: 13,
       }}>

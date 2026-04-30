@@ -5,7 +5,7 @@ import LifestyleImage from '@/components/imagery/LifestyleImage'
 
 export default function Hero() {
   return (
-    <section style={{
+    <section className="hero-section site-shell" style={{
       padding: '80px 48px 40px',
       display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center',
     }}>
@@ -13,7 +13,7 @@ export default function Hero() {
         <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 24 }}>
           ── PRINTEMPS · 2026
         </div>
-        <h1 style={{
+        <h1 className="page-title" style={{
           fontFamily: theme.serif, fontSize: 88, lineHeight: 0.95,
           fontWeight: 400, margin: 0, letterSpacing: '-0.03em',
         }}>
@@ -24,7 +24,7 @@ export default function Hero() {
         <p style={{ fontSize: 17, lineHeight: 1.6, color: theme.ink2, maxWidth: 480, marginTop: 28 }}>
           Une sélection d&apos;artisans français, une logistique éco-responsable, et chez vous en quelques jours. C&apos;est tout — et c&apos;est beaucoup.
         </p>
-        <div style={{ display: 'flex', gap: 12, marginTop: 36 }}>
+        <div className="hero-actions" style={{ display: 'flex', gap: 12, marginTop: 36 }}>
           <Link href="/catalog" style={{
             background: theme.ink, color: theme.cream, border: 'none',
             padding: '16px 28px', fontFamily: theme.sans, fontSize: 14,
@@ -42,7 +42,7 @@ export default function Hero() {
             Nos artisans
           </Link>
         </div>
-        <div style={{ display: 'flex', gap: 48, marginTop: 56, paddingTop: 32, borderTop: `1px solid ${theme.line}` }}>
+        <div className="hero-stats" style={{ display: 'flex', gap: 48, marginTop: 56, paddingTop: 32, borderTop: `1px solid ${theme.line}` }}>
           {[
             { value: '120+', label: 'ARTISANS', color: theme.accent },
             { value: '−72%', label: 'CO₂ ÉVITÉ', color: theme.accent2 },
@@ -58,14 +58,14 @@ export default function Hero() {
         </div>
       </div>
 
-      <div style={{ position: 'relative', height: 580 }}>
+      <div className="hero-visual" style={{ position: 'relative', height: 580 }}>
         <div style={{ position: 'absolute', top: 0, right: 0, width: '75%', height: '75%' }}>
           <LifestyleImage palette="warm" label="SALON · CHÊNE" />
         </div>
         <div style={{ position: 'absolute', bottom: 0, left: 0, width: '55%', height: '45%', border: `8px solid ${theme.cream}` }}>
           <LifestyleImage palette="sage" label="DÉTAIL · LIN" />
         </div>
-        <div style={{
+        <div className="hero-badge" style={{
           position: 'absolute', top: 40, left: 0,
           background: theme.cream, padding: '12px 16px', border: `1px solid ${theme.line}`,
           fontFamily: theme.mono, fontSize: 10, letterSpacing: '0.2em',

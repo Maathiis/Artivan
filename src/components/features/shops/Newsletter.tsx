@@ -3,8 +3,8 @@ import Icon from '@/components/ui/Icon'
 
 export default function Newsletter() {
   return (
-    <section style={{ padding: '80px 48px' }}>
-      <div style={{
+    <section className="site-shell" style={{ padding: '80px 48px' }}>
+      <div className="newsletter-card" style={{
         background: theme.ink, color: theme.cream, padding: '80px 60px',
         display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center',
       }}>
@@ -12,12 +12,12 @@ export default function Newsletter() {
           <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.cream3, marginBottom: 16 }}>
             NEWSLETTER
           </div>
-          <h2 style={{ fontFamily: theme.serif, fontSize: 44, lineHeight: 1.05, fontWeight: 400, margin: 0, fontStyle: 'italic' }}>
+          <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 44, lineHeight: 1.05, fontWeight: 400, margin: 0, fontStyle: 'italic' }}>
             Découvrez les nouveaux ateliers en avant-première.
           </h2>
         </div>
         <div>
-          <div style={{ display: 'flex', gap: 0, borderBottom: `1px solid ${theme.cream}50` }}>
+          <div className="newsletter-form-row" style={{ display: 'flex', gap: 0, borderBottom: `1px solid ${theme.cream}50` }}>
             <input
               placeholder="votre@email.com"
               style={{

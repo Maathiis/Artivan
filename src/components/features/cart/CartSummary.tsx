@@ -10,7 +10,7 @@ interface CartSummaryProps {
 export default function CartSummary({ subtotal, shipping, total }: CartSummaryProps) {
   return (
     <div>
-      <div style={{ background: theme.ink, color: theme.cream, padding: 32, position: 'sticky', top: 100 }}>
+      <div className="cart-summary-card" style={{ background: theme.ink, color: theme.cream, padding: 32, position: 'sticky', top: 100 }}>
         <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.2em', color: theme.cream3, marginBottom: 16 }}>
           RÉCAPITULATIF
         </div>
@@ -49,7 +49,7 @@ export default function CartSummary({ subtotal, shipping, total }: CartSummaryPr
           <Icon name="lock" size={12} stroke={theme.cream3} /> PAIEMENT SÉCURISÉ
         </div>
       </div>
-      <div style={{ background: theme.cream2, padding: 24, marginTop: 16, border: `1px solid ${theme.line}` }}>
+      <div className="cart-eco-card" style={{ background: theme.cream2, padding: 24, marginTop: 16, border: `1px solid ${theme.line}` }}>
         <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
           <Icon name="leaf" size={20} stroke={theme.accent2} />
           <div>

@@ -9,11 +9,11 @@ export const metadata = { title: "Boutiques — L'Atelier Mobile" }
 export default function ShopsPage() {
   return (
     <div>
-      <section style={{ padding: '80px 48px 60px', textAlign: 'center', borderBottom: `1px solid ${theme.line}` }}>
+      <section className="site-shell" style={{ padding: '80px 48px 60px', textAlign: 'center', borderBottom: `1px solid ${theme.line}` }}>
         <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 24 }}>
           NOS PARTENAIRES · {SHOPS.length} ATELIERS
         </div>
-        <h1 style={{ fontFamily: theme.serif, fontSize: 96, lineHeight: 0.95, fontWeight: 400, margin: 0, letterSpacing: '-0.03em' }}>
+        <h1 className="page-title" style={{ fontFamily: theme.serif, fontSize: 96, lineHeight: 0.95, fontWeight: 400, margin: 0, letterSpacing: '-0.03em' }}>
           Les <span style={{ fontStyle: 'italic', color: theme.accent }}>artisans</span><br />
           qui font L&apos;Atelier
         </h1>

@@ -10,9 +10,9 @@ interface FeaturedShopProps {
 
 export default function FeaturedShop({ shop }: FeaturedShopProps) {
   return (
-    <section style={{ padding: '80px 48px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '5fr 4fr', background: theme.cream2 }}>
-        <div style={{ minHeight: 540, position: 'relative' }}>
+    <section className="site-shell" style={{ padding: '80px 48px' }}>
+      <div className="feature-split" style={{ display: 'grid', gridTemplateColumns: '5fr 4fr', background: theme.cream2 }}>
+        <div className="featured-shop-image" style={{ minHeight: 540, position: 'relative' }}>
           <ShopImage shop={shop} />
           <div style={{
             position: 'absolute', top: 24, left: 24,
@@ -22,15 +22,15 @@ export default function FeaturedShop({ shop }: FeaturedShopProps) {
             BOUTIQUE EN VEDETTE
           </div>
         </div>
-        <div style={{ padding: '60px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="featured-shop-body" style={{ padding: '60px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.muted, marginBottom: 12 }}>
             {shop.tag.toUpperCase()} · {shop.city.toUpperCase()} · DEPUIS {shop.founded}
           </div>
-          <h2 style={{ fontFamily: theme.serif, fontSize: 56, lineHeight: 1, fontWeight: 400, margin: 0, fontStyle: 'italic' }}>
+          <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 56, lineHeight: 1, fontWeight: 400, margin: 0, fontStyle: 'italic' }}>
             {shop.name}
           </h2>
           <p style={{ fontSize: 16, color: theme.ink2, lineHeight: 1.7, marginTop: 24 }}>{shop.longDesc}</p>
-          <div style={{ display: 'flex', gap: 32, marginTop: 32, paddingTop: 24, borderTop: `1px solid ${theme.line}` }}>
+          <div className="shop-stats" style={{ display: 'flex', gap: 32, marginTop: 32, paddingTop: 24, borderTop: `1px solid ${theme.line}` }}>
             <div>
               <div style={{ fontFamily: theme.serif, fontSize: 28 }}>{shop.productCount}</div>
               <div style={{ fontSize: 11, color: theme.muted, fontFamily: theme.mono, letterSpacing: '0.1em' }}>PIÈCES EN LIGNE</div>

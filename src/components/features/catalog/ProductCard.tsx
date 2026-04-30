@@ -24,7 +24,7 @@ export default function ProductCard({ product, onView3D }: ProductCardProps) {
     >
       <div style={{ aspectRatio: '1', position: 'relative', overflow: 'hidden' }}>
         <ProductImage product={product} palette="warm" />
-        <div style={{
+        <div className="product-card-overlay" style={{
           position: 'absolute', inset: 0,
           background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%)',
           opacity: hover ? 1 : 0, transition: 'opacity 0.3s',
@@ -50,7 +50,7 @@ export default function ProductCard({ product, onView3D }: ProductCardProps) {
         <div style={{ fontSize: 11, color: theme.muted, fontFamily: theme.mono, letterSpacing: '0.1em', marginBottom: 8 }}>
           {product.artisan.toUpperCase()}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
+        <div className="product-card-line" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
           <h3 style={{ fontFamily: theme.serif, fontSize: 22, fontWeight: 500, margin: 0 }}>{product.name}</h3>
           <div style={{ fontFamily: theme.serif, fontSize: 20 }}>{product.price} €</div>
         </div>

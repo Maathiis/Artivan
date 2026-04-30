@@ -3,8 +3,8 @@ import { theme } from '@/lib/theme'
 
 export default function Footer() {
   return (
-    <footer style={{ background: theme.ink, color: theme.cream, padding: '60px 48px 32px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40 }}>
+    <footer className="app-footer site-shell" style={{ background: theme.ink, color: theme.cream, padding: '60px 48px 32px' }}>
+      <div className="app-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40 }}>
         <div>
           <div style={{ fontFamily: theme.serif, fontStyle: 'italic', fontSize: 28, marginBottom: 12 }}>
             L&apos;Atelier Mobile
@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div style={{
+      <div className="app-footer-bottom" style={{
         marginTop: 48, paddingTop: 20, borderTop: `1px solid ${theme.cream}20`,
         fontSize: 11, opacity: 0.5, display: 'flex', justifyContent: 'space-between',
       }}>
