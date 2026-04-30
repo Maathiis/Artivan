@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { theme } from '@/lib/theme'
 import { useCart } from '@/context/CartContext'
+import { useAuth } from '@/context/AuthContext'
 import Icon from '@/components/ui/Icon'
 
 const NAV_LINKS = [
@@ -14,7 +15,15 @@ const NAV_LINKS = [
 
 export default function Header() {
   const pathname = usePathname()
+  const router = useRouter()
   const { cartCount } = useCart()
+  const { user, loading, signOut } = useAuth()
+
+  const handleSignOut = async () => {
+    await signOut()
+    router.push('/')
+    router.refresh()
+  }
 
   return (
     <header className="app-header" style={{
@@ -78,13 +87,54 @@ export default function Header() {
             </span>
           )}
         </Link>
-        <Link href="/settings" style={{
-          background: 'transparent', border: `1px solid ${theme.line}`,
-          width: 40, height: 40, cursor: 'pointer', color: theme.ink,
-          display: 'grid', placeItems: 'center', textDecoration: 'none',
-        }}>
-          <Icon name="user" size={18} />
-        </Link>
+
+        {!loading && user ? (
+          /* Authenticated: show user menu */
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/settings" style={{
+              background: 'transparent', border: `1px solid ${theme.line}`,
+              height: 40, cursor: 'pointer', color: theme.ink,
+              display: 'flex', alignItems: 'center', gap: 8,
+              textDecoration: 'none', padding: '0 14px',
+              fontSize: 13, fontFamily: theme.sans,
+            }}>
+              <Icon name="user" size={16} />
+              <span style={{ maxWidth: 120, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {user.user_metadata?.full_name || user.email?.split('@')[0] || 'Mon compte'}
+              </span>
+            </Link>
+            <button
+              onClick={handleSignOut}
+              style={{
+                background: 'transparent', border: `1px solid ${theme.line}`,
+                width: 40, height: 40, cursor: 'pointer', color: theme.muted,
+                display: 'grid', placeItems: 'center',
+              }}
+              title="Se déconnecter"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+            </button>
+          </div>
+        ) : (
+          /* Not authenticated: show login button */
+          <Link href="/auth" style={{
+            background: pathname === '/auth' ? theme.ink : 'transparent',
+            border: `1px solid ${pathname === '/auth' ? theme.ink : theme.line}`,
+            height: 40, cursor: 'pointer',
+            color: pathname === '/auth' ? theme.cream : theme.ink,
+            display: 'flex', alignItems: 'center', gap: 8,
+            textDecoration: 'none', padding: '0 16px',
+            fontSize: 13, fontFamily: theme.sans,
+            letterSpacing: '0.02em',
+          }}>
+            <Icon name="user" size={16} />
+            Connexion
+          </Link>
+        )}
       </div>
     </header>
   )
