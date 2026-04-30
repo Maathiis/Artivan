@@ -24,12 +24,12 @@ function ShopCard({ shop, index }: { shop: Shop; index: number }) {
         display: 'block',
       }}
     >
-      <div style={{ display: 'grid', gridTemplateColumns: index % 2 === 0 ? '1fr 1.2fr' : '1.2fr 1fr' }}>
-        <div style={{ minHeight: 280, order: index % 2 === 0 ? 0 : 1 }}>
+      <div className="shop-card-layout" style={{ display: 'grid', gridTemplateColumns: index % 2 === 0 ? '1fr 1.2fr' : '1.2fr 1fr' }}>
+        <div className="shop-card-image" style={{ minHeight: 280, order: index % 2 === 0 ? 0 : 1 }}>
           <ShopImage shop={shop} />
         </div>
         <div style={{ padding: '32px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <div className="shop-card-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <div style={{ fontFamily: theme.mono, fontSize: 10, letterSpacing: '0.2em', color: theme.muted }}>
               {shop.tag.toUpperCase()}
             </div>
@@ -41,7 +41,7 @@ function ShopCard({ shop, index }: { shop: Shop; index: number }) {
             {shop.name}
           </h3>
           <p style={{ fontSize: 13, color: theme.ink2, lineHeight: 1.6, margin: 0 }}>{shop.desc}</p>
-          <div style={{
+          <div className="shop-card-footer" style={{
             marginTop: 20, paddingTop: 16, borderTop: `1px solid ${theme.line}`,
             display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             fontSize: 12, color: theme.muted, fontFamily: theme.mono, letterSpacing: '0.1em',
@@ -59,8 +59,8 @@ function ShopCard({ shop, index }: { shop: Shop; index: number }) {
 
 export default function ShopGrid({ shops }: ShopGridProps) {
   return (
-    <section style={{ padding: '0 48px 80px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+    <section className="site-shell" style={{ padding: '0 48px 80px' }}>
+      <div className="shop-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
         {shops.map((shop, i) => (
           <ShopCard key={shop.id} shop={shop} index={i} />
         ))}

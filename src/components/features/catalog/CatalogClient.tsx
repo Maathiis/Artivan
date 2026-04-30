@@ -23,23 +23,23 @@ export default function CatalogClient({ products }: CatalogClientProps) {
   const filtered = category === 'Tous' ? products : products.filter(p => p.category === category)
 
   return (
-    <div style={{ padding: '60px 48px 100px' }}>
+    <div className="site-shell" style={{ padding: '60px 48px 100px' }}>
       <div style={{ marginBottom: 40 }}>
         <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 16 }}>
           CATALOGUE COMPLET · {filtered.length} PIÈCES
         </div>
-        <h1 style={{ fontFamily: theme.serif, fontSize: 64, lineHeight: 1, fontWeight: 400, margin: 0 }}>
+        <h1 className="page-title" style={{ fontFamily: theme.serif, fontSize: 64, lineHeight: 1, fontWeight: 400, margin: 0 }}>
           Tous les <span style={{ fontStyle: 'italic' }}>produits</span>
         </h1>
       </div>
 
       {/* Filter bar */}
-      <div style={{
+      <div className="filter-bar" style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         padding: '16px 0', borderTop: `1px solid ${theme.line}`, borderBottom: `1px solid ${theme.line}`,
         marginBottom: 40,
       }}>
-        <div style={{ display: 'flex', gap: 6 }}>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {CATEGORIES.map(c => (
             <button key={c} onClick={() => setCategory(c)} style={{
               background: category === c ? theme.ink : 'transparent',
@@ -51,7 +51,7 @@ export default function CatalogClient({ products }: CatalogClientProps) {
             </button>
           ))}
         </div>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
           <span style={{ fontSize: 12, color: theme.muted, fontFamily: theme.mono, letterSpacing: '0.1em', marginRight: 8 }}>VUE</span>
           {(['grid', 'list'] as const).map(v => (
             <button key={v} onClick={() => setView(v)} style={{
@@ -67,13 +67,13 @@ export default function CatalogClient({ products }: CatalogClientProps) {
       </div>
 
       {view === 'grid' ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+        <div className="catalog-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
           {filtered.map(p => <ProductCard key={p.id} product={p} onView3D={setViewer} />)}
         </div>
       ) : (
         <div style={{ display: 'grid', gap: 16 }}>
           {filtered.map(p => (
-            <div key={p.id} style={{
+            <div key={p.id} className="catalog-list-item" style={{
               display: 'grid', gridTemplateColumns: '180px 1fr auto', gap: 32,
               padding: 16, background: theme.cream2, alignItems: 'center',
             }}>
@@ -85,7 +85,7 @@ export default function CatalogClient({ products }: CatalogClientProps) {
                 <h3 style={{ fontFamily: theme.serif, fontSize: 24, fontWeight: 500, margin: '0 0 8px' }}>{p.name}</h3>
                 <p style={{ fontSize: 13, color: theme.ink2, margin: 0, maxWidth: 480 }}>{p.desc}</p>
               </div>
-              <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-end' }}>
+              <div className="catalog-list-actions" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-end' }}>
                 <div style={{ fontFamily: theme.serif, fontSize: 24 }}>{p.price} €</div>
                 <button onClick={() => setViewer(p)} style={{
                   background: 'transparent', border: `1px solid ${theme.line}`,

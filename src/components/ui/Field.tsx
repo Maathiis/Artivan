@@ -26,7 +26,7 @@ export default function Field({ label, icon, placeholder, type = 'text' }: Field
           type={type}
           placeholder={placeholder}
           style={{
-            flex: 1, background: 'transparent', border: 'none', outline: 'none',
+            flex: 1, minWidth: 0, background: 'transparent', border: 'none', outline: 'none',
             fontSize: 15, fontFamily: theme.sans, color: theme.ink,
           }}
         />

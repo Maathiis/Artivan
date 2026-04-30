@@ -9,18 +9,18 @@ const VALUES: { icon: IconName; title: string; desc: string }[] = [
 
 export default function ValuesSection() {
   return (
-    <section style={{ padding: '100px 48px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 64, marginBottom: 48 }}>
+    <section className="site-shell" style={{ padding: '100px 48px' }}>
+      <div className="values-intro" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 64, marginBottom: 48 }}>
         <div>
           <div style={{ fontFamily: theme.mono, fontSize: 11, letterSpacing: '0.25em', color: theme.accent, marginBottom: 16 }}>
             NOS VALEURS
           </div>
-          <h2 style={{ fontFamily: theme.serif, fontSize: 48, lineHeight: 1.05, fontWeight: 400, margin: 0 }}>
+          <h2 className="section-title" style={{ fontFamily: theme.serif, fontSize: 48, lineHeight: 1.05, fontWeight: 400, margin: 0 }}>
             Pourquoi nous choisir
           </h2>
         </div>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 1, background: theme.line }}>
+      <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 1, background: theme.line }}>
         {VALUES.map((v) => (
           <div key={v.title} style={{ background: theme.cream, padding: '40px 32px' }}>
             <Icon name={v.icon} size={28} stroke={theme.accent2} strokeWidth={1.4} />

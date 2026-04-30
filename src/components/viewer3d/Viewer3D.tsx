@@ -56,7 +56,7 @@ export default function Viewer3D({ product, onClose }: Viewer3DProps) {
       }}
     >
       {/* Header */}
-      <div style={{
+      <div className="viewer-header" style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '20px 32px', borderBottom: `1px solid ${theme.cream}15`,
       }}>
@@ -120,18 +120,18 @@ export default function Viewer3D({ product, onClose }: Viewer3DProps) {
           </div>
         </div>
 
-        <div style={{ position: 'absolute', left: 32, bottom: 32, fontFamily: theme.mono, fontSize: 11, opacity: 0.7 }}>
+        <div className="viewer-coords" style={{ position: 'absolute', left: 32, bottom: 32, fontFamily: theme.mono, fontSize: 11, opacity: 0.7 }}>
           <div>X: {Math.round(rotX)}°</div>
           <div>Y: {Math.round(rotY)}°</div>
           <div>ZOOM: {zoom.toFixed(1)}×</div>
         </div>
-        <div style={{ position: 'absolute', right: 32, bottom: 32, fontFamily: theme.mono, fontSize: 11, opacity: 0.5, textAlign: 'right' }}>
+        <div className="viewer-help" style={{ position: 'absolute', right: 32, bottom: 32, fontFamily: theme.mono, fontSize: 11, opacity: 0.5, textAlign: 'right' }}>
           GLISSER POUR PIVOTER<br />MOLETTE POUR ZOOMER
         </div>
       </div>
 
       {/* Controls */}
-      <div style={{
+      <div className="viewer-controls" style={{
         padding: '20px 32px', borderTop: `1px solid ${theme.cream}15`,
         display: 'flex', gap: 16, alignItems: 'center',
       }}>
